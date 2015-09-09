@@ -1,0 +1,65 @@
+.skills {
+    @extend %frame;
+    @extend %center;
+    padding: 0;
+}
+
+.skills h2 {
+    padding-left: 10px;
+    border-right: 1px dashed #ccc;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.skill-chart-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.skill-chart {
+    width: 50%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 1px dashed #ccc;
+}
+
+.skill-chart:last-child,
+.skill-chart:nth-last-child(2) {
+    border-bottom: 0;
+}
+
+.skill-chart:nth-child(odd) {
+    border-right: 1px dashed #ccc;
+}
+
+.skill-chart-underline {
+    fill: rgba(0, 0, 0, 0.3);
+}
+
+.skills-more-wrapper {
+    display: none;
+}
+
+.show-more-skills .skills-more-wrapper {
+    @extend %center;
+    display: block;
+
+    .skill-chart {
+        @extend %frame;
+        width: 100%;
+        margin-bottom: $spacing;
+        border: 0;
+    }
+
+    h3 {
+        margin-top: 2 * $spacing;
+    }
+
+    h3:first-child {
+        margin-top: 0;
+    }
+}
+
+.show-more-skills .see-more-skills {
+    display: none;
+}

@@ -1,0 +1,33 @@
+.experience-wrapper {
+    @extend %feature-wrapper;
+}
+
+.experience {
+    @extend %frame;
+    width: 100%;
+    padding: $spacing;
+    margin-bottom: $spacing;
+
+    em {
+        @extend %header-font;
+        float: right;
+        font-size: 2em;
+    }
+}
+
+.see-more-experience {
+    margin-top: 0 !important;
+}
+
+.experience-more-wrapper {
+    @extend %feature-wrapper;
+    display: none;
+}
+
+.show-more-experience .experience-more-wrapper {
+    display: flex;
+}
+
+.show-more-experience .see-more-experience {
+    display: none;
+}

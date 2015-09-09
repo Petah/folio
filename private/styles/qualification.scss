@@ -1,0 +1,20 @@
+.qualification-wrapper {
+    @extend %feature-wrapper;
+}
+
+.qualification {
+    @extend %frame;
+    width: 100%;
+    padding: $spacing;
+    margin-bottom: $spacing;
+
+    em {
+        @extend %header-font;
+        float: right;
+        font-size: 2em;
+    }
+
+    h4 {
+        color: #e91e63;
+    }
+}

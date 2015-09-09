@@ -1,0 +1,108 @@
+html {
+    font-size: 16px;
+    font-family: 'Yantramanav', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: #EAEAEA;
+}
+
+h2 {
+    @extend %header-font;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+p,
+a,
+em {
+    @include mobile {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+
+h1 {
+    @extend %pad;
+    padding-top: 5vh;
+    margin: 0 0 10px 0;
+}
+
+h1,
+h1 a,
+h1 a:hover,
+h1 a:focus,
+h1 a:visited {
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 100;
+    background-color: #222;
+    color: white;
+    font-size: 5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.14);
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 3rem;
+    margin: 0;
+    display: none;
+}
+
+h3 {
+    margin: 5px 0 3px;
+}
+
+h4 {
+    margin: 5px 0 3px;
+}
+
+h5 {
+    margin: 15px 0 3px;
+}
+
+ul {
+    margin: 0;
+}
+
+svg {
+    width: 100%;
+}
+
+a {
+    color: $color-link;
+}
+
+a:hover,
+a:focus  {
+    color: $color-link-hover;
+}
+
+a:visited {
+    color: $color-link-visited;
+}
+
+hr {
+    margin: 1px 0 $spacing 0;
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+}
+
+blockquote {
+    color: #555;
+    font-style: italic;
+    margin: 10px;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    p:last-child {
+        margin-bottom: none;
+    }
+}

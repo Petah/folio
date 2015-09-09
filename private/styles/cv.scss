@@ -1,0 +1,93 @@
+@import 'variables';
+@import 'mixin';
+
+@import 'base';
+@import 'color';
+@import 'example';
+@import 'skill';
+@import 'experience';
+@import 'qualification';
+@import 'testimonial';
+@import 'tag';
+@import 'see-me';
+
+.personal-statement {
+    @extend %frame;
+    @extend %center;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.see-more {
+    @extend %margin;
+    margin-top: $spacing;
+    margin-bottom: $spacing;
+
+    button {
+        @extend %frame;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        padding: 9px 0;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #0089e0;
+        border: 1px inset rgba(0, 0, 0, 0.1);
+        color: white;
+    }
+}
+
+.footer {
+    @extend %header-font;
+
+    &,
+    a,
+    a:hover,
+    a:focus,
+    a:visited {
+        background-color: #222;
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .bell {
+        @extend %center;
+        padding: 30px 0 0 0;
+        font-size: 4rem;
+    }
+
+    .email {
+        @extend %center;
+        padding: 0 0 300px 0;
+        font-size: 2rem;
+    }
+}
+
+.vco-slider {
+    display:none;
+}
+
+.timeline {
+    margin-bottom: $spacing;
+
+    #timeline-embed {
+        border-bottom: 1px solid #ccc !important;
+    }
+
+    .vco-storyjs {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+    }
+}

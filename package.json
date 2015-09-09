@@ -1,0 +1,13 @@
+{
+  "name": "david-neilsen-cv",
+  "description": "CV of David Neilsen",
+  "version": "1.0.0",
+  "author": "David Neilsen",
+  "license": "cc-by-nc-sa",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.0.4",
+    "tsc": "^1.20150623.0",
+    "tsd": "^0.6.4"
+  }
+}
