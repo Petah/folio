@@ -16,14 +16,12 @@ gulp.task('default', function() {
 
     gulp.src('bower_components/TimelineJS/build/js/storyjs-embed.js')
         .pipe(gulp.dest('public/libraries'));
-});
 
-gulp.task('sass', function () {
     gulp.src('private/styles/cv.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('public/styles'));
 });
 
-gulp.task('sass:watch', function () {
-    gulp.watch('private/styles/**/*.scss', ['sass']);
+gulp.task('watch', function () {
+    gulp.watch('private/**/*.*', ['default']);
 });
