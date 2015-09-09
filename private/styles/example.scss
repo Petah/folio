@@ -8,10 +8,31 @@
 .example-work {
     @extend %frame;
     @extend %half;
-}
 
-.example-work p {
-    margin-bottom: 7px;
+    h3 {
+        margin-top: 0;
+    }
+
+    a {
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    img {
+        float: left;
+        width: 20%;
+        margin-right: 10px;
+    }
+
+    p {
+        margin-bottom: 7px;
+        display: none;
+    }
+
+    .tags {
+        margin-top: 10px;
+        clear: both;
+    }
 }
 
 .see-more-work {
