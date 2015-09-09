@@ -1,0 +1,31 @@
+.example-work-wrapper,
+.example-work-more-wrapper {
+    @extend %pad;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-work {
+    @extend %frame;
+    @extend %half;
+}
+
+.example-work p {
+    margin-bottom: 7px;
+}
+
+.see-more-work {
+    margin-top: 0 !important;
+}
+
+.example-work-more-wrapper {
+    display: none;
+}
+
+.show-more-work .example-work-more-wrapper {
+    display: flex;
+}
+
+.show-more-work .see-more-work {
+    display: none;
+}

@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "d3": "~3.5.6",
+    "jquery": "~2.1.4",
+    "TimelineJS": "~2.36.0"
+  }
+}

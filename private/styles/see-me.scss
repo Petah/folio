@@ -1,0 +1,50 @@
+.see-me-wrapper {
+    @extend %feature-wrapper;
+}
+
+.see-me {
+    @extend %frame;
+    @extend %half;
+    display: block;
+    text-decoration: none;
+
+    img {
+        width: 20%;
+        border-radius: 2px;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: $black;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $black;
+    }
+
+    em {
+        color: $color-link;
+        text-decoration: underline;
+    }
+
+    &:hover em,
+    &:focus em {
+        color: $color-link-hover;
+    }
+
+    &:visited em {
+        color: $color-link-visited;
+    }
+
+    .see-me-info {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 5px;
+
+        @include mobile {
+            display: block;
+        }
+    }
+}

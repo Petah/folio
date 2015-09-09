@@ -1,0 +1,10 @@
+.testimonial-wrapper {
+    @extend %feature-wrapper;
+}
+
+.testimonial {
+    @extend %frame;
+    width: 100%;
+    padding: $spacing;
+    margin-bottom: $spacing;
+}
