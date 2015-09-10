@@ -22,7 +22,6 @@ var Cv;
         };
         SkillChart.prototype.updateRanges = function () {
             this.x.range([0, 100]);
-            console.log([0, this.node]);
             this.y.rangeBands([0, this.data.length * 50], 0, 0);
         };
         SkillChart.prototype.updateDomains = function () {
