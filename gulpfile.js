@@ -17,6 +17,9 @@ gulp.task('default', function() {
     gulp.src('bower_components/TimelineJS/build/js/storyjs-embed.js')
         .pipe(gulp.dest('public/libraries'));
 
+    gulp.src('bower_components/featherlight/release/*.*')
+        .pipe(gulp.dest('public/libraries'));
+
     gulp.src('private/styles/cv.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('public/styles'));
