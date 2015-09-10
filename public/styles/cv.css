@@ -25,7 +25,7 @@
   .example-work:nth-child(odd), .see-me:nth-child(odd) {
     margin-right: 1%; }
 
-h2, .experience em, .qualification em, .footer {
+h2, .experience em, .qualification > em, .footer {
   font-family: 'Yantramanav', sans-serif;
   font-weight: 100; }
 
@@ -63,7 +63,6 @@ p {
 
 @media screen and (max-width: 1200px) {
   p,
-  a,
   em {
     display: block;
     overflow: hidden;
@@ -247,8 +246,7 @@ blockquote {
   margin-right: 10px; }
 
 .example-work p {
-  margin-bottom: 7px;
-  display: none; }
+  margin-bottom: 7px; }
 
 .example-work .tags {
   margin-top: 10px;
@@ -336,11 +334,18 @@ blockquote {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px; }
-  .qualification em {
+  .qualification > em {
     float: right;
     font-size: 2em; }
-  .qualification h4 {
+  .qualification h4 em {
     color: #e91e63; }
+  .qualification h5 {
+    color: #e91e63;
+    margin: 0; }
+  .qualification.ggj h4 {
+    margin-top: 10px; }
+  .qualification.ggj img {
+    width: 33%; }
 
 .testimonial {
   width: 100%;

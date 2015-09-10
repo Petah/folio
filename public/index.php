@@ -3,6 +3,7 @@
 	<head>
         <!-- Checking out the whats underneath? Nice! ;) -->
         <link href="//fonts.googleapis.com/css?family=Yantramanav:400,100" rel="stylesheet" type="text/css">
+        <link href="libraries/featherlight.min.css" rel="stylesheet" type="text/css">
         <link href="styles/cv.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -149,94 +150,29 @@
         <hr/>
 
         <div class="example-work-wrapper">
-            <div class="example-work">
-                <img src="images/midcpg.png" />
-                <div class="example-work-flex">
+            <?php
+                $examples = file_get_contents(__DIR__ . '/../private/data/examples.json');
+                $examples = json_decode($examples);
+            ?>
+            <?php for ($i = 0; $i < 6; $i++): ?>
+                <div class="example-work">
+                    <?php if (isset($examples[$i]->image)): ?>
+                        <img src="images/<?= $examples[$i]->image; ?>" />
+                    <?php endif; ?>
                     <div class="example-work-info">
-                        <h3>Midlands Community Pharmacy Group</h3>
-                        <a href="http://www.midcpg.co.nz/" target="_blank">www.midcpg.co.nz</a>
-                        <p>Online pharmacy management and ordering portal.</p>
+                        <h3><?= $examples[$i]->name; ?></h3>
+                        <?php foreach ($examples[$i]->urls as $url): ?>
+                            <a href="<?= $url; ?>" target="_blank"><?= preg_replace('/^www\./', '', parse_url($url)['host']); ?></a>
+                        <?php endforeach; ?>
+                        <p><?= $examples[$i]->desc; ?></p>
                     </div>
                     <ul class="tags">
-                        <li class="tag"><em>Ordering System</em></li>
-                        <li class="tag"><em>Form Builder</em></li>
-                        <li class="tag"><em>CMS</em></li>
-                        <li class="tag"><em>CRM</em></li>
+                        <?php foreach ($examples[$i]->tags as $tag): ?>
+                            <li class="tag"><em><?= $tag; ?></em></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
-            </div>
-            <div class="example-work">
-                <img src="images/raptor.png" />
-                <div class="example-work-info">
-                    <h3>Raptor Editor</h3>
-                    <a href="http://www.raptor-editor.com/" target="_blank">www.raptor-editor.com</a>
-                    <p>WYSIWYG rich text editor for the web, open source and commercial.</p>
-                </div>
-                <ul class="tags">
-                    <li class="tag"><em>JavaScript</em></li>
-                    <li class="tag"><em>Product</em></li>
-                    <li class="tag"><em>Open Source Software</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/wmrf.png" />
-                <div class="example-work-info">
-                    <h3>Wiakato Medical Research</h3>
-                    <a href="http://www.wmrf.org.nz/" target="_blank">www.wmrf.org.nz</a>
-                    <p>Charity, content management, online DPS donation system.</p>
-                </div>
-                <ul class="tags">
-                    <li class="tag"><em>Charity</em></li>
-                    <li class="tag"><em>DPS</em></li>
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>PHP</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/goskey.png" />
-                <div class="example-work-info">
-                    <h3>Goskey</h3>
-                    <a href="http://www.goskey.co.nz/" target="_blank">www.goskey.co.nz</a>
-                    <p>Coupons and promotions.</p>
-                </div>
-                <ul class="tags">
-                    <li class="tag"><em>SEO</em></li>
-                    <li class="tag"><em>Affiliate API's</em></li>
-                    <li class="tag"><em>Coupon &amp; Promo Managment</em></li>
-                </ul>
-            </div>
-            <div class="example-work big">
-                <img src="images/country-providore.png" />
-                <div class="example-work-info">
-                    <h3>Country Providore</h3>
-                    <a href="http://www.thecountryprovidore.co.nz/" target="_blank">www.thecountryprovidore.co.nz</a>
-                    <a href="http://www.thestrawberryfarm.co.nz/" target="_blank">www.thestrawberryfarm.co.nz</a>
-                    <a href="http://www.punnet.co.nz/" target="_blank">www.punnet.co.nz</a>
-                    <p>Corporate identity, ecommerce, multisite platform.</p>
-                </div>
-                <ul class="tags">
-                    <li class="tag"><em>Multisite Platform</em></li>
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>CMS</em></li>
-                </ul>
-            </div>
-            <div class="example-work big">
-                <img src="images/midlands.png" />
-                <div class="example-work-info">
-                    <h3>Midlands Health Network</h3>
-                    <a href="https://www.midlandshn.health.nz/" target="_blank">www.midlandshn.health.nz</a>
-                    <a href="https://www.pinnacle.co.nz/" target="_blank">www.pinnacle.co.nz</a>
-                    <a href="https://www.itsmyhealth.co.nz/" target="_blank">www.itsmyhealth.co.nz</a>
-                    <a href="http://www.yournewclinic.com/" target="_blank">www.yournewclinic.com</a>
-                    <a href="http://www.itchyburnybits.com/" target="_blank">www.itchyburnybits.com</a>
-                    <p>Corporate identity, medical article publishing, medical center directory, recruitment site, self help information.</p>
-                </div>
-                <ul class="tags">
-                    <li class="tag"><em>Multisite Platform</em></li>
-                    <li class="tag"><em>Medical Center Management</em></li>
-                    <li class="tag"><em>iOS Kiosk</em></li>
-                </ul>
-            </div>
+            <?php endfor; ?>
         </div>
 
         <div class="see-more see-more-work">
@@ -244,208 +180,25 @@
         </div>
 
         <div class="example-work-more-wrapper">
-            <div class="example-work">
-                <img src="images/scullery.png" />
-                <h3>The Scullery</h3>
-                <a href="http://www.thescullery.co.nz/" target="_blank">www.thescullery.co.nz</a>
-                <p></p>
-                <ul class="tags">
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>Order Managment</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/ingham.png" />
-                <h3>Ingham Driven</h3>
-                <a href="http://www.inghamdriven.com/" target="_blank">www.inghamdriven.com</a>
-                <p>Dealer management intergration, promotional management system.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Autoplay API</em></li>
-                    <li class="tag"><em>Dealer Management</em></li>
-                    <li class="tag"><em>REST</em></li>
-                    <li class="tag"><em>XML</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/fairview.png" />
-                <h3>Fairview Educational Services</h3>
-                <a href="http://www.feds.co.nz/" target="_blank">www.feds.co.nz</a>
-                <p>Automotive course management.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Course Management</em></li>
-                    <li class="tag"><em>CRM</em></li>
-                    <li class="tag"><em>Enquiry Tracking</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/origin.png" />
-                <h3>Origin Agroup</h3>
-                <a href="http://www.originagroup.co.nz/" target="_blank">www.originagroup.co.nz</a>
-                <p>Product catalogue, atricle publishing.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Product Catalogue</em></li>
-                    <li class="tag"><em>Enquiry Tracking</em></li>
-                    <li class="tag"><em>Atricle Publishing</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/score-a-seat.png" />
-                <h3>Score a Seat</h3>
-                <a href="http://www.scoreaseat.co.nz/" target="_blank">www.scoreaseat.co.nz</a>
-                <p>Promotional Facebook integrated competition.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Facebook API</em></li>
-                    <li class="tag"><em>User Image Gallery</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/liquid-lab.png" />
-                <h3>Liquid Lab</h3>
-                <a href="https://www.liquidlab.co.nz/" target="_blank">www.liquidlab.co.nz</a>
-                <p>Ecommerce, opencart.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>Opencart</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/jonesys.png" />
-                <h3>Jonesys Garage</h3>
-                <a href="http://www.jonesys.co.nz/" target="_blank">www.jonesys.co.nz</a>
-                <p>Ecommerce, opencart.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>Opencart</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/jake-campus.png" />
-                <h3>Jake Campus Nutrition</h3>
-                <a href="http://www.jakecampusnutrition.com/" target="_blank">www.jakecampusnutrition.com</a>
-                <p>Tailored meal plans, form builder, ecommerce.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Form Builder</em></li>
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>Opencart</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/pfg.png" />
-                <h3>Power Farming Group Rewards</h3>
-                <a href="http://www.pfgrewards.com.au/" target="_blank">www.pfgrewards.com.au</a>
-                <p>Business intelligence and loyalty platfrom.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Business Intelligence</em></li>
-                    <li class="tag"><em>AnyChart</em></li>
-                    <li class="tag"><em>Loyalty Platfrom</em></li>
-                    <li class="tag"><em>QFF API</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/wonder-horse.png" />
-                <h3>Wonder Horse</h3>
-                <a href="http://www.wonderhorse.co.nz/" target="_blank">www.wonderhorse.co.nz</a>
-                <p>Menu management.</p>
-                <ul class="tags">
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>Menu Management</em></li>
-                    <li class="tag"><em>Enquiry Tracking</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/nzbgba.png" />
-                <h3>New Zealand Boer Goat Breeders Association</h3>
-                <a href="http://www.nzbgba.co.nz/" target="_blank">www.nzbgba.co.nz</a>
-                <p>Breader management, Google Maps API.</p>
-                <ul class="tags">
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>Google Maps API</em></li>
-                    <li class="tag"><em>CRM</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/nph.png" />
-                <h3>Niemand Peebles Hoult Barristers</h3>
-                <a href="http://www.nplaw.co.nz/" target="_blank">www.nplaw.co.nz</a>
-                <p>Content managment.</p>
-                <ul class="tags">
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>Form Builder</em></li>
-                    <li class="tag"><em>PHP</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <img src="images/rocket.png" />
-                <h3>Rocket Speed Equipment</h3>
-                <a href="http://www.rocketspeedequipment.com/" target="_blank">www.rocketspeedequipment.com</a>
-                <p>Ecommerce, product management, enquiry, events.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>Product management</em></li>
-                    <li class="tag"><em>Enquiry Tracking</em></li>
-                    <li class="tag"><em>Events</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <h3>The Right Tyre</h3>
-                <a href="http://www.therighttyre.co.nz/" target="_blank">www.therighttyre.co.nz</a>
-                <p>Promotional management system.</p>
-                <ul class="tags">
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>Form Builder</em></li>
-                    <li class="tag"><em>Promotion Management</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <h3>Smart Trade</h3>
-                <a href="http://www.smarttrade-international.com/" target="_blank">www.smarttrade-international.com</a>
-                <p>Corporate identity.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Corporate identity</em></li>
-                    <li class="tag"><em>Enquiry Tracking</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <h3>Aria Creative</h3>
-                <a href="http://www.ariacreative.co.nz/" target="_blank">www.ariacreative.co.nz</a>
-                <p>Ecommerce, opencart, content management system.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Ecommerce</em></li>
-                    <li class="tag"><em>Opencart</em></li>
-                    <li class="tag"><em>CMS</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <h3>Ngatea / Waiuku Milking Machines</h3>
-                <a href="http://www.milkingmachines.co.nz/" target="_blank">www.milkingmachines.co.nz</a>
-                <p>Content management system, enquiry system.</p>
-                <ul class="tags">
-                    <li class="tag"><em>CMS</em></li>
-                    <li class="tag"><em>Enquiry Tracking</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <h3>Avantidrome</h3>
-                <a href="http://bookings.avantidrome.co.nz/" target="_blank">bookings.avantidrome.co.nz</a>
-                <p>Track management and booking system.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Front end</em></li>
-                    <li class="tag"><em>Angular</em></li>
-                    <li class="tag"><em>Ruby</em></li>
-                </ul>
-            </div>
-            <div class="example-work">
-                <h3>GetGenuine</h3>
-                <a href="http://www.getgenuine.com.au/" target="_blank">www.getgenuine.com.au</a>
-                <p>Business intelligence and loyalty platfrom, big data, Quantus API intergration.</p>
-                <ul class="tags">
-                    <li class="tag"><em>Business Intelligence</em></li>
-                    <li class="tag"><em>Quantus Frequent Flyer API</em></li>
-                    <li class="tag"><em>Big Data</em></li>
-                    <li class="tag"><em>AnyChart</em></li>
-                </ul>
-            </div>
+            <?php for ($i = 6; $i < count($examples); $i++): ?>
+                <div class="example-work">
+                    <?php if (isset($examples[$i]->image)): ?>
+                        <img src="images/<?= $examples[$i]->image; ?>" />
+                    <?php endif; ?>
+                    <div class="example-work-info">
+                        <h3><?= $examples[$i]->name; ?></h3>
+                        <?php foreach ($examples[$i]->urls as $url): ?>
+                            <a href="<?= $url; ?>" target="_blank"><?= preg_replace('/^www\./', '', parse_url($url)['host']); ?></a>
+                        <?php endforeach; ?>
+                        <p><?= $examples[$i]->desc; ?></p>
+                    </div>
+                    <ul class="tags">
+                        <?php foreach ($examples[$i]->tags as $tag): ?>
+                            <li class="tag"><em><?= $tag; ?></em></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            <?php endfor; ?>
         </div>
 
         <div class="timeline">
@@ -458,7 +211,7 @@
                 <h3>Endace</h3>
                 <h4>Emulex, Avago Technulogies</h4>
                 <ul>
-                    <li>Build online network analytics platform using Node JS, PHP, Java, and proprietary hardware probes.</li>
+                    <li>Building online network analytics platform using Node JS, PHP, Java, and proprietary hardware probes.</li>
                     <li>Service oriented architecture.</li>
                     <li>Big data, petabyte scale, analytics.</li>
                     <li>Agile team of 5 in R&D, 100+ organisation wide.</li>
@@ -530,12 +283,12 @@
             <div class="qualification">
                 <em>2008</em>
                 <h3>Diploma in Information and Communication Technology Level 6 (awarded with merit)</h3>
-                <h4>Livestock improvement award for the highest achiever</h4>
+                <h4><em>Livestock improvement award for the highest achiever</em></h4>
             </div>
             <div class="qualification">
                 <em>2007</em>
                 <h3>Diploma in Information and Communication Technology Level 5 (awarded with merit)</h3>
-                <h4>Connect nz award for the highest achiever</h4>
+                <h4><em>Connect nz award for the highest achiever</em></h4>
             </div>
             <div class="qualification">
                 <em>2006</em>
@@ -545,11 +298,34 @@
                 <em>2006</em>
                 <h3>National Certificate in Computing Level 3 (passed with merit)</h3>
             </div>
-            <div class="qualification">
-                <em>2015, 2013</em>
-                <h3>Waikato Global Game Jam Site Favorite</h3>
-                <p><a href="http://www.stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed" target="_blank">http://www.stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed</a></p>
-                <p><a href="http://www.waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam" target="_blank">http://www.waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam</a></p>
+        </div>
+        <hr/>
+        <div class="qualification-wrapper">
+            <div class="qualification ggj">
+                <em>2013-2015</em>
+                <h3>Global Game Jam</h3>
+                <h4>Gravity Jam</h4>
+                <h5><em>Site Favorite</em></h5>
+                <p>
+                    <a href="http://globalgamejam.org/2015/games/gravityjam" target="_blank">globalgamejam.org/2015/games/gravityjam</a><br/>
+                    <a href="http://www.stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed" target="_blank">stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed</a>
+                </p>
+
+                <h4>Fourbro Beardbro Bro Battle</h4>
+                <p>
+                    <a href="http://globalgamejam.org/2014/games/fourbro-beardbro-bro-battle" target="_blank">globalgamejam.org/2014/games/fourbro-beardbro-bro-battle</a>
+                </p>
+
+                <h4>The Seeker</h4>
+                <h5><em>Site Favorite</em></h5>
+                <p>
+                    <!--<a href="http://2013.globalgamejam.org/2013/seeker" target="_blank">2013.globalgamejam.org/2013/seeker</a>-->
+                    <a href="http://www.waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam" target="_blank">waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam</a>
+                </p>
+
+                <a href="#" data-featherlight="images/ggj/lookout.png"><img src="images/ggj/lookout.png" /></a>
+                <a href="#" data-featherlight="images/ggj/fourbro-screen_0.png"><img src="images/ggj/fourbro-screen_0.png" /></a>
+                <a href="#" data-featherlight="images/ggj/the-seeker-ss.png"><img src="images/ggj/the-seeker-ss.png" /></a>
             </div>
         </div>
         <hr/>
@@ -595,6 +371,7 @@
         <script src="libraries/d3.min.js"></script>
         <script src="libraries/jquery.min.js"></script>
         <script src="libraries/timeline-min.js"></script>
+        <script src="libraries/featherlight.min.js"></script>
         <script src="scripts/cv.js"></script>
         <script>
             new Cv.SkillChart('#skills-language', [
@@ -953,8 +730,6 @@
             },
         };
     </script>
-    <script type="text/javascript"
-        src="libraries/storyjs-embed.js"></script>
-
+    <script type="text/javascript" src="libraries/storyjs-embed.js"></script>
 	</body>
 </html>

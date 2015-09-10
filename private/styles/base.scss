@@ -18,7 +18,6 @@ p {
 }
 
 p,
-a,
 em {
     @include mobile {
         display: block;

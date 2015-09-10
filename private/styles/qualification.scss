@@ -8,13 +8,28 @@
     padding: $spacing;
     margin-bottom: $spacing;
 
-    em {
+    > em {
         @extend %header-font;
         float: right;
         font-size: 2em;
     }
 
-    h4 {
+    h4 em {
         color: #e91e63;
+    }
+
+    h5 {
+        color: #e91e63;
+        margin: 0;
+    }
+
+    &.ggj {
+        h4 {
+            margin-top: 10px;
+        }
+
+        img {
+            width: 33%;
+        }
     }
 }
