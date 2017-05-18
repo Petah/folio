@@ -729,19 +729,28 @@
         var timeline_config = {
             width: '100%',
             height: '220',
-            start_zoom_adjust: 2,
+            start_zoom_adjust: 0.5,
             embed_id: 'timeline-embed',
             start_at_end: true,
             css: 'libraries/timeline.css',
             js: 'libraries/timeline-min.js',
+            start_at_slide: 19,
             source: {
                 timeline: {
                     type: "default",
                     date: [
                         {
-                            startDate: '2015,02,01',
+                            startDate: new Date(),
                             endDate: new Date(),
+                            headline: 'Today',
+                        }, {
+                            startDate: '2015,02,01',
+                            endDate: '2015,09,15',
                             headline: 'Endace',
+                        }, {
+                            startDate: '2015,09,15',
+                            endDate: new Date(),
+                            headline: 'MEA',
                         }, {
                             startDate: '2009,11,01',
                             endDate: new Date(),
@@ -802,10 +811,6 @@
                             startDate: '2017,01,28',
                             endDate: '2015,01,30',
                             headline: 'Viking Brawl',
-                        }, {
-                            startDate: new Date(),
-                            endDate: new Date(),
-                            headline: 'Today',
                         }, {
                             startDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
                             endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),

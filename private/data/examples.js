@@ -9,6 +9,7 @@ module.exports = [{
         'Electron',
         'Image Processing',
         'OpenCV',
+        'Angular',
     ],
     sort: 100,
 }, {
