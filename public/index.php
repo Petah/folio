@@ -1,3 +1,10 @@
+<?php
+    if (isset($_SERVER['HTTP_CF_VISITOR'])) {
+        if (strpos($_SERVER['HTTP_CF_VISITOR'], '"http"') !== false) {
+            header('Location: https://david.neilsen.nz/');
+        }
+    }
+?>
 <!doctype html>
 <html lang="en">
     <head>
