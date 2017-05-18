@@ -316,7 +316,8 @@ blockquote {
   margin-bottom: 10px; }
   .experience em {
     float: right;
-    font-size: 2em; }
+    font-size: 2em;
+    padding-right: 5px; }
 
 .see-more-experience {
   margin-top: 0 !important; }
@@ -336,16 +337,21 @@ blockquote {
   margin-bottom: 10px; }
   .qualification > em {
     float: right;
-    font-size: 2em; }
+    font-size: 2em;
+    padding-right: 5px; }
   .qualification h4 em {
     color: #e91e63; }
+  .qualification h4 small {
+    font-style: italic; }
   .qualification h5 {
     color: #e91e63;
     margin: 0; }
   .qualification.ggj h4 {
     margin-top: 10px; }
   .qualification.ggj img {
-    width: 33%; }
+    width: 33%;
+    margin: 0.15%;
+    float: left; }
 
 .testimonial {
   width: 100%;

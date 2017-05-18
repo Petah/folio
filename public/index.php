@@ -1,7 +1,10 @@
 <!doctype html>
-<html>
-	<head>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
         <!-- Checking out the whats underneath? Nice! ;) -->
+        <title>David Neilsen</title>
         <link href="//fonts.googleapis.com/css?family=Yantramanav:400,100" rel="stylesheet" type="text/css">
         <link href="libraries/featherlight.min.css" rel="stylesheet" type="text/css">
         <link href="styles/cv.css" rel="stylesheet" type="text/css">
@@ -154,7 +157,7 @@
                 <img src="images/stackoverflow.svg">
                 <div class="see-me-info">
                     <h3>Stack Overflow</h3>
-                    <p>23,000+ rep, Top 2% overall</p>
+                    <p>28,000+ rep, Top 1% overall</p>
                     <em>stackoverflow.com/users/268074/petah</em>
                 </div>
             </a>
@@ -173,8 +176,11 @@
             <?php
                 $examples = file_get_contents(__DIR__ . '/../private/data/examples.json');
                 $examples = json_decode($examples);
+                usort($examples, function($a, $b) {
+                    return $b->sort - $a->sort;
+                });
             ?>
-            <?php for ($i = 0; $i < 6; $i++): ?>
+            <?php for ($i = 0; $i < 10; $i++): ?>
                 <div class="example-work">
                     <?php if (isset($examples[$i]->image)): ?>
                         <img src="images/<?= $examples[$i]->image; ?>" />
@@ -200,7 +206,7 @@
         </div>
 
         <div class="example-work-more-wrapper">
-            <?php for ($i = 6; $i < count($examples); $i++): ?>
+            <?php for ($i = 10; $i < count($examples); $i++): ?>
                 <div class="example-work">
                     <?php if (isset($examples[$i]->image)): ?>
                         <img src="images/<?= $examples[$i]->image; ?>" />
@@ -227,24 +233,37 @@
 
         <div class="experience-wrapper">
             <div class="experience">
+                <em>2016-2017</em>
+                <h3><a href="http://we-are-mea.com/">MEA</a></h3>
+                <h4><a href="http://www.verdict.co.nz/">Verdict</a></h4>
+                <ul>
+                    <li>Photographic image processing and management software. Computer vision (OpenCV)</li>
+                    <li>API backend development servicing iOS, Android and Hybrid apps.</li>
+                    <li>AWS deployment stacks. EC2, RDS, S3, Elastic Beanstalk, DynamoDB, SQS, SNS</li>
+                    <li>Multiregional agile teams (USA and NZ).</li>
+                    <li>Electron desktop application development, hardware intergration (DSLR cameras, barcode scanners, etc).</li>
+                    <li>3rd party API intergration. Stripe, Kodak, Walgreens, CVS, SendGrid.</li>
+                </ul>
+            </div>
+            <div class="experience">
                 <em>2015</em>
-                <h3>Endace</h3>
+                <h3><a href="https://www.endace.com/">Endace</a></h3>
                 <h4>Emulex, Avago Technulogies</h4>
                 <ul>
                     <li>Building online network analytics platform using Node JS, PHP, Java, and proprietary hardware probes.</li>
                     <li>Service oriented architecture.</li>
                     <li>Big data, petabyte scale, analytics.</li>
-                    <li>Agile team of 5 in R&D, 100+ organisation wide.</li>
+                    <li>Agile team of 5 in R&amp;D, 100+ organisation wide.</li>
                     <li>HA, scalable cloud deployment using AWS and Azure.</li>
                     <li>Full stack from packet level inspection to high level analytics and intrusion detection systems.</li>
                 </ul>
             </div>
             <div class="experience">
-                <em>2009-2015</em>
-                <h3>PAN Media</h3>
+                <em>2009-2014</em>
+                <h3><a href="https://www.pan.co.nz/">PAN Media</a></h3>
                 <h4>Evoke Creative, ASAP Productions</h4>
                 <ul>
-                    <li>Development of business systems including, E-Commerce, invoicing, CRM, CMS, lead management, and reporting systems.</li>
+                    <li>Development of business systems including, e-commerce, invoicing, CRM, CMS, lead management, and reporting systems.</li>
                     <li>Database schema design and query optimisation delivering increased performance on large scale datasets.</li>
                     <li>Optimisation of web page performance including backend, frontend, rendering, payload size.</li>
                     <li>Leading a team of developers, designers, and involved in the project management and sales side.</li>
@@ -264,10 +283,10 @@
                     <li>Database interface abstraction allowing integration with any data store including implementations in SQL, Mongo, Memcache, flat file, and more.</li>
                     <li>Highly customisable, and easily to implement data tables including exporting and advanced filtering.</li>
                     <li>Lead management and form builder systems.</li>
-                    <li>User manageable galleries, scrolling banners, and navigations.</li>
+                    <li>User manageable galleries, scrolling banners, and navigation.</li>
                     <li>Multi-site management with capabilities for shared and unique content.</li>
                     <li>Meta data management including Open Graph, canonicals, affiliates, and analytics.</li>
-                    <li>Modular ecommerce system including product catalogues, categories, specials, freight zones, DPS integration, etc.</li>
+                    <li>Modular e-commerce system including product catalogues, categories, specials, freight zones, DPS integration, etc.</li>
                     <li>Integrated full site search backed by the Apache Solr engine.</li>
                     <li>Dynamic EAV model structure for rapid prototyping, and automated backend CRUD interfaces.</li>
                 </ul>
@@ -322,30 +341,50 @@
         <hr/>
         <div class="qualification-wrapper">
             <div class="qualification ggj">
-                <em>2013-2015</em>
-                <h3>Global Game Jam</h3>
-                <h4>Gravity Jam</h4>
-                <h5><em>Site Favorite</em></h5>
+                <em>2013-2017</em>
+                <h3>Game Jams</h3>
+                <h4>Viking Brawl <small>(Global Game Jam 2017)</small></h4>
                 <p>
-                    <a href="http://globalgamejam.org/2015/games/gravityjam" target="_blank">globalgamejam.org/2015/games/gravityjam</a><br/>
-                    <a href="http://www.stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed" target="_blank">stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed</a>
+                    <a href="http://globalgamejam.org/2017/games/viking-brawl" target="_blank">globalgamejam.org/2017/games/viking-brawl</a>
                 </p>
 
-                <h4>Fourbro Beardbro Bro Battle</h4>
+                <h4>Spacetime <small>(js13k 2016)</small></h4>
+                <h5><em>13kb total game size (including assets/sounds)</em></h5>
+                <p>
+                    <a href="http://js13kgames.com/entries/spacetime" target="_blank">js13kgames.com/entries/spacetime</a>
+                </p>
+
+                <h4>Argonauts <small>(Global Game Jam 2016)</small></h4>
+                <p>
+                    <a href="http://globalgamejam.org/2016/games/argonauts" target="_blank">globalgamejam.org/2016/games/argonauts</a>
+                </p>
+
+                <h4>Gravity Jam <small>(Global Game Jam 2015)</small></h4>
+                <h5><em>Site Favorite</em></h5>
+                <p>
+                    <a href="http://www.stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed" target="_blank">stuff.co.nz/technology/games/65644103/team-creates-winning-space-game-at-warp-speed</a><br/>
+                    <a href="http://globalgamejam.org/2015/games/gravityjam" target="_blank">globalgamejam.org/2015/games/gravityjam</a>
+                </p>
+
+                <h4>Fourbro Beardbro Bro Battle <small>(Global Game Jam 2014)</small></h4>
                 <p>
                     <a href="http://globalgamejam.org/2014/games/fourbro-beardbro-bro-battle" target="_blank">globalgamejam.org/2014/games/fourbro-beardbro-bro-battle</a>
                 </p>
 
-                <h4>The Seeker</h4>
+                <h4>The Seeker <small>(Global Game Jam 2013)</small></h4>
                 <h5><em>Site Favorite</em></h5>
                 <p>
-                    <!--<a href="http://2013.globalgamejam.org/2013/seeker" target="_blank">2013.globalgamejam.org/2013/seeker</a>-->
-                    <a href="http://www.waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam" target="_blank">waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam</a>
+                    <a href="http://www.waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam" target="_blank">waikato.ac.nz/news-events/media/2013/the-seeker-wins-site-favourite-at-waikato-leg-of-the-global-game-jam</a><br/>
+                    <a href="http://2013.globalgamejam.org/2013/seeker" target="_blank">2013.globalgamejam.org/2013/seeker</a>
                 </p>
 
-                <a href="#" data-featherlight="images/ggj/lookout.png"><img src="images/ggj/lookout.png" /></a>
-                <a href="#" data-featherlight="images/ggj/fourbro-screen_0.png"><img src="images/ggj/fourbro-screen_0.png" /></a>
-                <a href="#" data-featherlight="images/ggj/the-seeker-ss.png"><img src="images/ggj/the-seeker-ss.png" /></a>
+                <h4>Artwork</h4>
+                <a href="/images/ggj/viking-brawl.png" data-featherlight="images/ggj/viking-brawl.png"><img src="images/ggj/viking-brawl.png" /></a>
+                <a href="/images/ggj/spacetime.jpg" data-featherlight="images/ggj/spacetime.jpg"><img src="images/ggj/spacetime.jpg" /></a>
+                <a href="/images/ggj/argonauts.png" data-featherlight="images/ggj/argonauts.png"><img src="images/ggj/argonauts.png" /></a>
+                <a href="/images/ggj/lookout.png" data-featherlight="images/ggj/lookout.png"><img src="images/ggj/lookout.png" /></a>
+                <a href="/images/ggj/fourbro-screen_0.png" data-featherlight="images/ggj/fourbro-screen_0.png"><img src="images/ggj/fourbro-screen_0.png" /></a>
+                <a href="/images/ggj/the-seeker-ss.png" data-featherlight="images/ggj/the-seeker-ss.png"><img src="images/ggj/the-seeker-ss.png" /></a>
             </div>
         </div>
         <hr/>
@@ -414,34 +453,34 @@
             ]);
             new Cv.SkillChart('#skills-framework', [
                 {
-                    label: 'Symfony',
-                    level: 100,
-                },
-                {
                     label: 'Laravel',
                     level: 100,
                 },
                 {
-                    label: 'Node',
+                    label: 'Angular',
+                    level: 100,
+                },
+                {
+                    label: 'NodeJS',
                     level: 90,
                 },
                 {
-                    label: 'Angular',
+                    label: 'Symfony',
                     level: 85,
                 },
             ]);
             new Cv.SkillChart('#skills-platform', [
                 {
                     label: 'Linux',
-                    level: 95,
+                    level: 100,
+                },
+                {
+                    label: 'AWS',
+                    level: 100,
                 },
                 {
                     label: 'DevOps',
                     level: 90,
-                },
-                {
-                    label: 'AWS',
-                    level: 85,
                 },
                 {
                     label: 'Azure',
@@ -455,7 +494,7 @@
                 },
                 {
                     label: 'SVG',
-                    level: 95,
+                    level: 100,
                 },
                 {
                     label: 'UX',
@@ -477,7 +516,7 @@
                     level: 100,
                 },
                 {
-                    label: 'EcmaScript',
+                    label: 'EcmaScript6+',
                     level: 95,
                 },
                 {
@@ -504,7 +543,7 @@
                     level: 100,
                 },
                 {
-                    label: 'Intergration Testing',
+                    label: 'Integration Testing',
                     level: 75,
                 },
                 {
@@ -542,7 +581,7 @@
 
             new Cv.SkillChart('#skills-build', [
                 {
-                    label: 'Phing',
+                    label: 'Gulp',
                     level: 100,
                 },
                 {
@@ -550,11 +589,11 @@
                     level: 90,
                 },
                 {
-                    label: 'Gulp',
+                    label: 'Continuous Integration',
                     level: 70,
                 },
                 {
-                    label: 'Continuous Integration',
+                    label: 'Phing',
                     level: 70,
                 },
             ]);
@@ -574,7 +613,11 @@
                 },
                 {
                     label: 'EC2',
-                    level: 80,
+                    level: 95,
+                },
+                {
+                    label: 'IAM',
+                    level: 95,
                 },
                 {
                     label: 'Lambda',
@@ -586,6 +629,10 @@
                 },
                 {
                     label: 'SNS',
+                    level: 70,
+                },
+                {
+                    label: 'DynamoDB',
                     level: 70,
                 },
             ]);
@@ -642,7 +689,7 @@
                     level: 70,
                 },
                 {
-                    label: 'Postgres',
+                    label: 'PostgreSQL',
                     level: 60,
                 },
                 {
@@ -661,11 +708,11 @@
                     level: 90,
                 },
                 {
-                    label: 'CentOS',
-                    level: 70,
+                    label: 'Docker',
+                    level: 80,
                 },
                 {
-                    label: 'Docker',
+                    label: 'CentOS',
                     level: 70,
                 },
             ]);
@@ -727,11 +774,35 @@
                         }, {
                             startDate: '2013,01,25',
                             endDate: '2013,11,27',
-                            headline: 'Global Game Jam',
+                            headline: 'The Seeker',
                         }, {
-                            startDate: '2015,01,20',
-                            endDate: '2015,01,23',
-                            headline: 'Global Game Jam',
+                            startDate: '2014,01,24',
+                            endDate: '2014,01,26',
+                            headline: 'Fourbro Beardbro Bro Battle',
+                        }, {
+                            startDate: '2015,01,23',
+                            endDate: '2015,01,25',
+                            headline: 'Gravity Jam',
+                        }, {
+                            startDate: '2016,01,23',
+                            endDate: '2016,01,25',
+                            headline: 'Argonauts',
+                        }, {
+                            startDate: '2016,08,13',
+                            endDate: '2015,09,13',
+                            headline: 'Spacetime',
+                        }, {
+                            startDate: '2017,01,28',
+                            endDate: '2015,01,30',
+                            headline: 'Viking Brawl',
+                        }, {
+                            startDate: new Date(),
+                            endDate: new Date(),
+                            headline: 'Today',
+                        }, {
+                            startDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+                            endDate: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+                            headline: 'Your Place?',
                         }, {
                             startDate: '1987,01,18',
                             endDate: new Date(),

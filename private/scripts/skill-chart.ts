@@ -3,8 +3,8 @@ namespace Cv {
         private node;
         private data = [];
 
-        private svg: d3.Selection<any>;
-        private barGroup: d3.Selection<any>;
+        private svg: d3.Selection<any, any, any, any>;
+        private barGroup: d3.Selection<any, any, any, any>;
         private x;
         private y;
 
@@ -19,8 +19,8 @@ namespace Cv {
             this.svg = d3.select(node);
             this.barGroup = this.svg.select('.skill-chart-bars');
 
-            this.x = d3.scale.linear();
-            this.y = d3.scale.ordinal();
+            this.x = d3.scaleLinear();
+            this.y = d3.scaleBand();
 
             this.redraw();
         }
@@ -34,7 +34,7 @@ namespace Cv {
 
         private updateRanges() {
             this.x.range([0, 100]);
-            this.y.rangeBands([0, this.data.length * 50], 0, 0);
+            this.y.range([0, this.data.length * 50]);
         }
 
         private updateDomains() {
@@ -77,30 +77,30 @@ namespace Cv {
                     ].join(' ');
                 })
                 .attr('x', 0)
-                .attr('y', (d) => {
-                    return (this.y(d.label) + (this.y.rangeBand() / 2)) - 2;
+                .attr('y', (d: { label: string }) => {
+                    return (this.y(d.label) + (this.y.bandwidth() / 2)) - 2;
                 })
-                .attr('width', (d) => {
+                .attr('width', (d: { level: number }) => {
                     return Math.max(1, this.x(d.level)) + '%';
                 })
-                .attr('height', this.y.rangeBand() / 2);
+                .attr('height', this.y.bandwidth() / 2);
 
             this.barGroup.selectAll('.skill-chart-underline')
                 .attr('x', 0)
-                .attr('y', (d) => {
-                    return (this.y(d.label) + (this.y.rangeBand() / 2) + this.y.rangeBand() / 2 - 5);
+                .attr('y', (d: { label: string }) => {
+                    return (this.y(d.label) + (this.y.bandwidth() / 2) + this.y.bandwidth() / 2 - 5);
                 })
-                .attr('width', (d) => {
+                .attr('width', (d: { level: number }) => {
                     return Math.max(1, this.x(d.level)) + '%';
                 })
                 .attr('height', 3);
 
             this.barGroup.selectAll('.skill-chart-text')
                 .attr('x', 0)
-                .attr('y', (d) => {
-                    return (this.y(d.label) + (this.y.rangeBand() / 2)) - 7;
+                .attr('y', (d: { label: string }) => {
+                    return (this.y(d.label) + (this.y.bandwidth() / 2)) - 7;
                 })
-                .text((d) => {
+                .text((d: { label: string }) => {
                     return d.label;
                 });
         }

@@ -12,10 +12,15 @@
         @extend %header-font;
         float: right;
         font-size: 2em;
+        padding-right: 5px;
     }
 
     h4 em {
         color: #e91e63;
+    }
+
+    h4 small {
+        font-style: italic;
     }
 
     h5 {
@@ -30,6 +35,8 @@
 
         img {
             width: 33%;
+            margin: 0.15%;
+            float: left;
         }
     }
 }

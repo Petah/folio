@@ -1,4 +1,29 @@
-var examples = [{
+module.exports = [{
+    image: 'picsos.png',
+    name: 'PicsOS',
+    urls: ['https://www.picsos.com/'],
+    desc: 'Operating in the field of digital image processing with a focus on high quality, creative yet effortless photographic solutions. Supporting any club, charity, community group or school achieve their fundraising targets.',
+    tags: [
+        'SaaS',
+        'iOS/Android API',
+        'Electron',
+        'Image Processing',
+        'OpenCV',
+    ],
+    sort: 100,
+}, {
+    image: 'printicular.png',
+    name: 'Printicular',
+    urls: ['http://www.printicular.com/'],
+    desc: 'Print photos directly to Walgreens, Duane Reade, and Warehouse Stationary. Print your Facebook, Instagram, Google+, Picasa, Flickr and Twitter images.',
+    tags: [
+        'iOS/Android API',
+        'AWS',
+        'Laravel',
+        'Print Lab Integration',
+    ],
+    sort: 90,
+}, {
     image: 'midcpg.png',
     name: 'Midlands Community Pharmacy Group',
     urls: ['http://www.midcpg.co.nz/'],
@@ -9,8 +34,8 @@ var examples = [{
         'CMS',
         'CRM',
     ],
+    sort: 80,
 }, {
-
     image: 'ingham.png',
     name: 'Ingham Driven',
     urls: ['http://www.inghamdriven.com/'],
@@ -21,6 +46,7 @@ var examples = [{
         'REST',
         'XML',
     ],
+    sort: 50,
 }, {
     image: 'wmrf.png',
     name: 'Wiakato Medical Research',
@@ -32,16 +58,7 @@ var examples = [{
         'CMS',
         'PHP',
     ],
-}, {
-    image: 'goskey.png',
-    name: 'Goskey',
-    urls: ['http://www.goskey.co.nz/'],
-    desc: 'Goskey Coupons offer a wide selection of discount coupon codes and daily sales from NZ\'s leading retailers as well a large selection of International retailers.',
-    tags: [
-        'SEO',
-        'Affiliate API\'s',
-        'Coupon & Promo Managment',
-    ],
+    sort: 81,
 }, {
     image: 'country-providore.png',
     name: 'Country Providore',
@@ -56,6 +73,7 @@ var examples = [{
         'Ecommerce',
         'CMS',
     ],
+    sort: 79,
 }, {
     image: 'magills.png',
     name: 'Magills',
@@ -65,6 +83,7 @@ var examples = [{
         'Ecommerce',
         'Customer Ordering System',
     ],
+    sort: 71,
 }, {
     image: 'midlands.png',
     name: 'Midlands Health Network',
@@ -81,8 +100,8 @@ var examples = [{
         'Medical Center Management',
         'iOS Kiosk',
     ],
+    sort: 85,
 }, {
-
     image: 'origin.png',
     name: 'Origin Agroup',
     urls: ['http://www.originagroup.co.nz/'],
@@ -92,18 +111,19 @@ var examples = [{
         'Enquiry Tracking',
         'Atricle Publishing',
     ],
+    sort: 41,
 }, {
     image: 'scullery.png',
     name: 'The Scullery',
     urls: ['http://www.thescullery.co.nz/'],
-    desc: 'The Scullery offers quality kitchenware and has a product range that includes some of the worlds leading kitchenware brands such as Le Creuset, WMF, Henckels, Scanpan, Bialetti and Peugeot. At The Scullery we pride ourselves on providing an excellent shopping experience. So for a shopping experience form a locally owned and operated Hamilton business backed by a strong reputation, products and brands you can trust we invite you to pay us a visit soon either online or at the store 371 Victoria Street, Hamilton.',
+    desc: 'The Scullery offers quality kitchenware and has a product range that includes some of the worlds leading kitchenware brands such as Le Creuset, WMF, Henckels, Scanpan, Bialetti and Peugeot. At The Scullery we pride ourselves on providing an excellent shopping experience.',
     tags: [
         'Ecommerce',
         'CMS',
         'Order Managment',
     ],
+    sort: 74,
 }, {
-
     image: 'pfg.png',
     name: 'Power Farming Group Rewards',
     urls: ['http://www.pfgrewards.com.au/'],
@@ -114,6 +134,7 @@ var examples = [{
         'Loyalty Platfrom',
         'VFF API',
     ],
+    sort: 43,
 }, {
     image: 'liquid-lab.jpg',
     name: 'Liquid Lab',
@@ -123,8 +144,8 @@ var examples = [{
         'Ecommerce',
         'Opencart',
     ],
+    sort: 0,
 }, {
-
     image: 'fairview.png',
     name: 'Fairview Educational Services',
     urls: ['http://www.feds.co.nz/'],
@@ -134,8 +155,8 @@ var examples = [{
         'CRM',
         'Enquiry Tracking',
     ],
+    sort: 55,
 }, {
-
     image: 'score-a-seat.png',
     name: 'Score a Seat',
     urls: ['http://www.scoreaseat.co.nz/'],
@@ -144,6 +165,7 @@ var examples = [{
         'Facebook API',
         'User Image Gallery',
     ],
+    sort: 0,
 }, {
     image: 'raptor.png',
     name: 'Raptor Editor',
@@ -154,8 +176,8 @@ var examples = [{
         'Product',
         'Open Source Software',
     ],
+    sort: 1,
 }, {
-
     image: 'jonesys.png',
     name: 'Jonesys Garage',
     urls: ['http://www.jonesys.co.nz/'],
@@ -164,19 +186,19 @@ var examples = [{
         'Ecommerce',
         'Opencart',
     ],
+    sort: 54,
 }, {
-
-    image: 'jake-campus.png',
-    name: 'Jake Campus Nutrition',
-    urls: ['http://www.jakecampusnutrition.com/'],
-    desc: 'Customised nutrition plans to cater for the clients individual needs.',
+    image: 'goskey.png',
+    name: 'Goskey',
+    urls: ['http://www.goskey.co.nz/'],
+    desc: 'Goskey Coupons offer a wide selection of discount coupon codes and daily sales from NZ\'s leading retailers as well a large selection of International retailers.',
     tags: [
-        'Form Builder',
-        'Ecommerce',
-        'Opencart',
+        'SEO',
+        'Affiliate API\'s',
+        'Coupon & Promo Managment',
     ],
+    sort: 0,
 }, {
-
     image: 'wonder-horse.png',
     name: 'Wonder Horse',
     urls: ['http://www.wonderhorse.co.nz/'],
@@ -186,8 +208,8 @@ var examples = [{
         'Menu Management',
         'Enquiry Tracking',
     ],
+    sort: 76,
 }, {
-
     image: 'nzbgba.png',
     name: 'New Zealand Boer Goat Breeders Association',
     urls: ['http://www.nzbgba.co.nz/'],
@@ -197,8 +219,8 @@ var examples = [{
         'Google Maps API',
         'CRM',
     ],
+    sort: 32,
 }, {
-
     image: 'nph.png',
     name: 'Niemand Peebles Hoult Barristers',
     urls: ['http://www.nplaw.co.nz/'],
@@ -208,6 +230,7 @@ var examples = [{
         'Form Builder',
         'PHP',
     ],
+    sort: 80,
 }, {
     image: 'rocket.png',
     name: 'Rocket Speed Equipment',
@@ -219,6 +242,7 @@ var examples = [{
         'Enquiry Tracking',
         'Events',
     ],
+    sort: 58,
 }, {
     image: 'milking-machines.jpg',
     name: 'Ngatea / Waiuku Milking Machines',
@@ -228,6 +252,7 @@ var examples = [{
         'CMS',
         'Enquiry Tracking',
     ],
+    sort: 45,
 }, {
     image: 'smart-trade.png',
     name: 'Smart Trade',
@@ -237,6 +262,7 @@ var examples = [{
         'Corporate identity',
         'Enquiry Tracking',
     ],
+    sort: 0,
 }, {
     image: 'mexican-wave.jpg',
     name: 'Bring Back the Mexican Wave!',
@@ -246,6 +272,7 @@ var examples = [{
         'Promotional',
         'Facebook API',
     ],
+    sort: 0,
 }, {
     name: 'The Right Tyre',
     urls: ['http://www.therighttyre.co.nz/'],
@@ -255,6 +282,7 @@ var examples = [{
         'Form Builder',
         'Promotion Management',
     ],
+    sort: 0,
 }, {
     name: 'Aria Creative',
     urls: ['http://www.ariacreative.co.nz/'],
@@ -264,15 +292,7 @@ var examples = [{
         'Opencart',
         'CMS',
     ],
-}, {
-    name: 'Avantidrome',
-    urls: ['http://bookings.avantidrome.co.nz/'],
-    desc: 'The Avantidrome is all about giving anyone the opportunity to experience the thrill of riding an indoor track. We can provide all the gear necessary to get you out on the track.',
-    tags: [
-        'Front end',
-        'Angular',
-        'Ruby',
-    ],
+    sort: 0,
 }, {
     name: 'GetGenuine',
     urls: ['http://www.getgenuine.com.au/'],
@@ -283,6 +303,26 @@ var examples = [{
         'Big Data',
         'AnyChart',
     ],
+    sort: 0,
+}, {
+    name: 'Avantidrome',
+    urls: ['http://bookings.avantidrome.co.nz/'],
+    desc: 'The Avantidrome is all about giving anyone the opportunity to experience the thrill of riding an indoor track. We can provide all the gear necessary to get you out on the track.',
+    tags: [
+        'Front end',
+        'Angular',
+        'Ruby',
+    ],
+    sort: 0,
+}, {
+    image: 'jake-campus.png',
+    name: 'Jake Campus Nutrition',
+    urls: ['http://www.jakecampusnutrition.com/'],
+    desc: 'Customised nutrition plans to cater for the clients individual needs.',
+    tags: [
+        'Form Builder',
+        'Ecommerce',
+        'Opencart',
+    ],
+    sort: 0,
 }];
-
-process.stdout.write(JSON.stringify(examples) + '\n');

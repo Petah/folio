@@ -10,8 +10,8 @@ var Cv;
             }
             this.svg = d3.select(node);
             this.barGroup = this.svg.select('.skill-chart-bars');
-            this.x = d3.scale.linear();
-            this.y = d3.scale.ordinal();
+            this.x = d3.scaleLinear();
+            this.y = d3.scaleBand();
             this.redraw();
         }
         SkillChart.prototype.redraw = function () {
@@ -22,7 +22,7 @@ var Cv;
         };
         SkillChart.prototype.updateRanges = function () {
             this.x.range([0, 100]);
-            this.y.rangeBands([0, this.data.length * 50], 0, 0);
+            this.y.range([0, this.data.length * 50]);
         };
         SkillChart.prototype.updateDomains = function () {
             this.x.domain([0, 100]);
@@ -58,16 +58,16 @@ var Cv;
             })
                 .attr('x', 0)
                 .attr('y', function (d) {
-                return (_this.y(d.label) + (_this.y.rangeBand() / 2)) - 2;
+                return (_this.y(d.label) + (_this.y.bandwidth() / 2)) - 2;
             })
                 .attr('width', function (d) {
                 return Math.max(1, _this.x(d.level)) + '%';
             })
-                .attr('height', this.y.rangeBand() / 2);
+                .attr('height', this.y.bandwidth() / 2);
             this.barGroup.selectAll('.skill-chart-underline')
                 .attr('x', 0)
                 .attr('y', function (d) {
-                return (_this.y(d.label) + (_this.y.rangeBand() / 2) + _this.y.rangeBand() / 2 - 5);
+                return (_this.y(d.label) + (_this.y.bandwidth() / 2) + _this.y.bandwidth() / 2 - 5);
             })
                 .attr('width', function (d) {
                 return Math.max(1, _this.x(d.level)) + '%';
@@ -76,14 +76,13 @@ var Cv;
             this.barGroup.selectAll('.skill-chart-text')
                 .attr('x', 0)
                 .attr('y', function (d) {
-                return (_this.y(d.label) + (_this.y.rangeBand() / 2)) - 7;
+                return (_this.y(d.label) + (_this.y.bandwidth() / 2)) - 7;
             })
                 .text(function (d) {
                 return d.label;
             });
         };
         return SkillChart;
-    })();
+    }());
     Cv.SkillChart = SkillChart;
 })(Cv || (Cv = {}));
-//# sourceMappingURL=cv.js.map

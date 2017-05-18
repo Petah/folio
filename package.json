@@ -1,13 +1,21 @@
 {
   "name": "david-neilsen-cv",
   "description": "CV of David Neilsen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "David Neilsen",
   "license": "cc-by-nc-sa",
   "devDependencies": {
+    "@types/d3": "^4.8.0",
     "gulp": "^3.9.0",
     "gulp-sass": "^2.0.4",
+    "gulp-typescript": "^3.1.6",
     "tsc": "^1.20150623.0",
-    "tsd": "^0.6.4"
+    "typescript": "^2.3.2"
+  },
+  "dependencies": {
+    "d3": "^4.9.1",
+    "featherlight": "^1.7.5",
+    "jquery": "^3.2.1",
+    "timelinejs": "^2.35.6"
   }
 }

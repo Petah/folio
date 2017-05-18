@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "system",
         "target": "ES5",
         "out": "public/scripts/cv.js",
         "sourceMap": true,
